@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import reactLogo from '@/assets/react.svg'
 import viteLogo from '@/assets/vite.svg'
+import { Outlet, Link} from 'react-router-dom'
+import Board from '../yx/yx'
 import './home.scss'
 
 function Home() {
@@ -25,9 +27,23 @@ function Home() {
           Edit <code>src/Home.tsx</code> and save to test HMR
         </p>
       </div>
+      <Board/>
+      <nav>
+        <ul>
+          <li>
+            <Link to={`/contact/1`}>Your Name</Link>
+          </li>
+          <li>
+            <Link to={`/contact/2`}>Your Friend</Link>
+          </li>
+        </ul>
+      </nav>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   )
 }

@@ -1,17 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from '@/pages/home/home.tsx'
+import ErrorPage from '@/error-page.tsx'
+import Contact from "@/routes/contact";
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import '@/app.scss'
+import '@/pages/yx/yx.scss'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Home />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/contact/:contactId",
+        element: <Contact />,
+      },
+    ]
   },
+  
 ]);
 
 // antd部分
